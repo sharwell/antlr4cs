@@ -123,7 +123,14 @@ namespace Antlr4.Runtime
 
         protected internal override int AdjustSeekIndex(int i)
         {
-            return NextTokenOnChannel(i, channel);
+           var result = NextTokenOnChannel(i, channel);
+            if (result == -1) // if -1 would be returned, the parse would continue at the start again
+            {
+                result = tokens.Count - 1;
+                // at this point the EOF has been seen, so tokens.Count - 1 points at EOF
+                System.Diagnostics.Debug.Assert(tokens[result].Type == IntStreamConstants.Eof);
+            }
+            return result;
         }
 
         protected internal override IToken Lb(int k)
