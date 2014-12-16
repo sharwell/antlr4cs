@@ -175,7 +175,7 @@ target frameworks. The following graph show the supported replacements which ret
 dashed line represents a currently-untested link in the graph (see
 [#91](https://github.com/tunnelvisionlabs/antlr4cs/issues/91)).
 
-![Framework Compatibility](images/FrameworkCompatibility.png)
+![Framework Compatibility](images/FrameworkCompatibility.svg)
 
 ### Pre-release Builds
 
